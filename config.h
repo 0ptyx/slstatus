@@ -66,5 +66,8 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
     { battery_perc, "Batt: %s | ",       "BAT0" },
+    { run_command,  "Vol: %s | ",
+      "echo $(wpctl get-volume @DEFAULT_SINK@ | cut -d ':' -f 2 | tr -d ' ' | tr -d '.' | sed 's/^0//')"
+    },
 	{ datetime, "%s",           "%F %T" },
 };
